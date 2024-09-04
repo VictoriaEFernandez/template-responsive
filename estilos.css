@@ -1,0 +1,137 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+header, nav, section, main, footer, .extra, .image, .blanco {
+    padding: 10px;
+}
+
+header {
+    background-color: #1c2541;
+    color: #fff;
+}
+
+nav {
+    background-color: red;
+    color: #fff;
+}
+
+section {
+    background-color: #3273b2;
+    color: #fff;
+}
+
+main {
+    background-color: rgb(32, 32, 86);
+    color: #fff;
+}
+.blanco{
+    background-color: #fff;
+
+}
+
+.extra {
+    background-color: #50c878;
+    color: #fff;
+}
+
+.image {
+    background-color: #9edfb4;
+    color: #fff;
+}
+
+footer {
+    background-color: #ffc857;
+    color: #fff;
+}
+
+/* Layout usando Grid */
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "hero hero"
+        "main image"
+        "main extra"
+        "banner banner"
+        "blanco blanco";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+    gap: 0; /* Eliminamos el espacio entre los elementos */
+}
+
+header {
+    grid-area: header;
+}
+menu{
+    grid-area: header;
+}
+
+nav {
+    grid-area: header;
+    margin-left: auto; /* Mueve el menú hacia la derecha */
+    width: auto; /* Permite que el menu ocupe el espacio restante */
+}
+
+section {
+    grid-area: hero;
+    height: 400px; /* Aumentamos la altura para que sea el área más grande */
+}
+
+main {
+    grid-area: main;
+    height: 300px; /* Rectangular, ajusta la altura según tu preferencia */
+}
+
+.image, .extra {
+    height: 150px; /* Más pequeñas y cuadradas */
+    width: 100%; /* Ocupan todo el ancho disponible */
+}
+
+.image {
+    grid-area: image;
+}
+
+.extra {
+    grid-area: extra;
+}
+
+footer {
+    grid-area: banner;
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1200px) {
+    header, nav, section, main, footer, .extra, .image {
+        padding: 30px;
+    }
+
+    .container {
+        grid-template-areas: 
+            "header header"
+            "hero hero"
+            "main image"
+            "main extra"
+            "banner banner";
+        grid-template-columns: 3fr 1fr;
+        gap: 0; /* Eliminamos el espacio entre los elementos */
+    }
+
+    section {
+        height: 500px; /* Mayor altura en pantallas grandes */
+    }
+
+    main {
+        height: 400px; /* Ajustar la altura para una mejor forma rectangular */
+    }
+
+    .image, .extra {
+        height: 200px; /* Ajustamos las dimensiones en pantallas grandes */
+    }
+}
+
